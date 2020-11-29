@@ -4,7 +4,7 @@ import React,{Component} from 'react';
 
 class App extends Component {
   render (){
-    return<h1>hello,toru</h1>;
+  return <button type="button" onClick={() => {window.alert("hi")}} />;
   }
 }
 
