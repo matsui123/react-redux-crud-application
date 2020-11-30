@@ -8,16 +8,22 @@ import React,{Component} from 'react';
   }
 }*/
 const App = () => {
+  const profiles = [
+    {name:"hanako",age:11},
+    {name:"takashi",age:20}
+  ]
+
   return (
     <div>
-      <Cat />
-      <Cat />
-      <Cat />
+    profiles.map((profile) => {
+      return <User name={profile.name} age={profile.age}/>
+    })
+  }
     </div>
   )
 }
 
-const Cat = () => {
-  return (<div>Meow!</div>)
+const User = (props) => {
+  return (<div>I am {props.name} ,and {props.age}years old</div>)
 }
 export default App;
