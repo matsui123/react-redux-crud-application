@@ -1,5 +1,5 @@
-import React,{Component} from 'react';
-
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 /*class App extends Component {
@@ -15,15 +15,20 @@ const App = () => {
 
   return (
     <div>
+  {
     profiles.map((profile) => {
       return <User name={profile.name} age={profile.age}/>
     })
   }
-    </div>
+   </div>
   )
 }
 
 const User = (props) => {
   return (<div>I am {props.name} ,and {props.age}years old</div>)
+}
+User.propTypes = {
+  name:PropTypes.string,
+  age :PropTypes.number
 }
 export default App;
