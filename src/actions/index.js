@@ -1,3 +1,5 @@
+//actionとaction createrの実装
+//actionとはtypeというキーを持つ属性のこと
 export const INCLEMENT = 'INCLEMENT'
 export const DECLEMENT = 'DECLEMENT'
 
