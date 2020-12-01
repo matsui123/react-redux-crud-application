@@ -1,34 +1,38 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React , {Component} from 'react';
 
+const App = () =>  (<Counter></Counter>)
 
-/*class App extends Component {
-  render (){
-  return <button type="button" onClick={() => {window.alert("hi")}} />;
+//Componentをしたクラスはコンポーネントとして何度も利用出でき、タグとして使うことができる
+class Counter extends Component{
+  //constructorはpropsを受け取ることができる
+  constructor(props){
+    super(props);
+    this.state = {count:0};
   }
-}*/
-const App = () => {
-  const profiles = [
-    {name:"hanako",age:11},
-    {name:"takashi",age:20}
-  ]
+  handlePlusOne = () =>{
+    console.log(this.state.count+1);
+    //stateを変更したいときはsetStateメソッドを使う
+    //setStateを使うとrenderメソッドが呼び出される
+    const count1 = this.state.count;
+    this.setState({count: this.state.count+1});
 
-  return (
-    <div>
-  {
-    profiles.map((profile) => {
-      return <User name={profile.name} age={profile.age}/>
-    })
   }
-   </div>
-  )
+  handleMinusOne = () =>{
+    const count2 = this.state.count;
+    this.setState({count: count2-1});
+  }
+
+  render(){
+    console.log(this.state)
+    return (
+      <React.Fragment>
+      <div>counter:{this.state.count}</div>
+      <button onClick={this.handlePlusOne}>+1</button>
+      <button onClick={this.handleMinusOne}>-1</button>
+      </React.Fragment>
+    )
+  }
 }
 
-const User = (props) => {
-  return (<div>I am {props.name} ,and {props.age}years old</div>)
-}
-User.propTypes = {
-  name:PropTypes.string,
-  age :PropTypes.number
-}
+
 export default App;
